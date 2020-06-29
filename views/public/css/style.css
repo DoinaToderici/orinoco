@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+body {
+  font-family: "Roboto", sans-serif !important;
+  font-size: 5rem;
+}
+body .nav-bar {
+  background-color: #f4e9f1;
+  display: flex;
+  align-items: center;
+  padding: 0 0.5rem;
+}
+body .nav-bar .logo img {
+  width: 125px;
+}
+body .nav-bar i {
+  font-size: 1.5rem;
+  color: #765f70;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 4rem;
+}
+@media (max-width: 768px) {
+  body .nav-bar i {
+    margin-right: 1rem;
+  }
+}
+body .nav-bar #number-basket {
+  background-color: #f8f7f7;
+  border-radius: 100%;
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -10px;
+  right: 65px;
+  color: #f707b9;
+}
+@media (max-width: 768px) {
+  body .nav-bar #number-basket {
+    right: 15px;
+  }
+}
+body main {
+  height: auto;
+  background-color: #f8f7f7;
+  color: #ca81b7;
+}
+body main img {
+  width: 100%;
+}
+body main i {
+  color: #ca81b7;
+}
+body main i:hover {
+  color: #c897bb;
+  cursor: pointer;
+}
+body main #products {
+  list-style: none;
+  padding: 0;
+}
+body main #products li {
+  margin: 2rem 0;
+}
+body main #products li img {
+  width: 100%;
+  height: auto;
+}
+body main .single-element {
+  height: 100vh;
+  padding: 5rem 2rem;
+}
+body main .single-element img {
+  width: 100%;
+}
+@media (max-width: 768px) {
+  body main .single-element .product-description {
+    text-align: center;
+  }
+  body main .single-element .product-description button {
+    margin: 2rem auto;
+    border: 2px solid;
+  }
+}
+body main .single-element .product-description .name,
+body main .single-element .product-description .price {
+  font-family: "Pacifico", cursive !important;
+  font-size: 2rem;
+}
+body main .single-element .product-description .description,
+body main .single-element .product-description select {
+  font-family: "Indie Flower", cursive !important;
+}
+body main .single-element .product-description select {
+  margin: 1rem 0;
+  border-color: #ca81b7;
+  color: #ca81b7;
+  box-shadow: -1px 0px 1px 0px rgba(0, 0, 0, 0.68);
+  cursor: pointer;
+}
+body main .single-element .product-description .buttons {
+  max-width: 150px;
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  border-radius: 50px;
+  padding: 0.2rem 0.5rem;
+}
+@media (max-width: 768px) {
+  body main .single-element .product-description .buttons {
+    margin: 2rem auto;
+    border: 2px solid;
+  }
+}
+body main .single-element .product-description .buttons a {
+  text-decoration: none;
+  color: #ca81b7;
+}
+body main #summary-basket .row {
+  border: 0.1rem solid;
+  margin: 0.5rem;
+  background-color: white;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+body main #validation-message {
+  text-align: center;
+}
+body main #validation-message .row {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+}
+body main #validation-message .row ul {
+  border: 1px solid pink;
+}
+body main #validation-message .row ul li {
+  margin-bottom: 0;
+}
+body main #validation-message .row hr {
+  width: 65%;
+}
+body main #validation-message p {
+  margin-bottom: 0;
+}
+body main #validation-message p:first-child {
+  color: green;
+  padding-top: 5rem;
+  font-size: 1.5rem;
+}
+body main #validation-message p .price {
+  text-align: right;
+  padding-right: 3rem;
+  padding-bottom: 1rem;
+}
+body main #validation-message p span {
+  color: grey;
+  font-size: 1rem;
+}
+
+/*# sourceMappingURL=style.css.map */

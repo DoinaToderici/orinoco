@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://use.fontawesome.com/482c89666c.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="row nav-bar">
+                <div class="col-4 logo">
+                    <a href="products.html"><img src="./public/images/logo.png" alt=""></a>
+                </div>
+                <div class="col-8">
+                    <a href="summaryBasket.html"><i class="fa fa-shopping-basket" aria-hidden="true"></i><span
+                            id="number-basket">0</span></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <div class="row">
+            <div class="col-7">
+                <div id="summary-basket">
+                </div>
+                <span id="totalPrice"></span>
+            </div>
+
+
+            <form class="col-lg-5" id="form" onsubmit="formSubmit(event)">
+                <div class="form-group">
+                    <label for="prenom">Prénom:</label>
+                    <input type="text" class="form-control" id="prenom" placeholder="" name="prenom" required>
+                </div>
+                <div class="form-group">
+                    <label for="nom">Nom:</label>
+                    <input type="text" class="form-control" id="nom" placeholder="" name="nom" required>
+                </div>
+                <div class="form-group">
+                    <label for="adresse">Adress:</label>
+                    <input type="text" class="form-control" id="adresse" placeholder="" name="adresse" required>
+                </div>
+                <div class="form-group">
+                    <label for="ville">Ville:</label>
+                    <input type="text" class="form-control" id="ville" placeholder="" name="ville" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" placeholder="" name="email" required>
+                </div>
+
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <p id="message-form"></p>
+                <p id="message-success"></p>
+                <p id="message-erreur"></p>
+            </form>
+        </div>
+    </main>
+
+    <script src="./public/js/quantityBasket.js"></script>
+    <script src="./public/js/summaryBasket.js"></script>
+    <script src="./public/js/submitForm.js"></script>
+
+
+</body>
+
+</html>

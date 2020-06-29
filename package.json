@@ -4,8 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "sass": "scss"
+    "test": "jest",
+    "start": "nodemon server",
+    "sass": "sass views/scss/style.scss views/public/css/style.css --watch"
   },
   "author": "",
   "license": "ISC",
@@ -20,5 +21,8 @@
     "sass": "^1.26.5",
     "server": "^1.0.27",
     "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "jest": "^26.0.1"
   }
 }
