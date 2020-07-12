@@ -1,9 +1,11 @@
 const summaryBasket = document.getElementById("summary-basket");
 const totalPriceElement = document.getElementById("totalPrice");
+//récupération du tableau de localStorage si existe, si non, on cree un nouveau tableau
 const oldArrayItems =
-  JSON.parse(localStorage.getItem("itemsArrayLocalStorage")) || []; //récupération du tableau de localStorage
+  JSON.parse(localStorage.getItem("itemsArrayLocalStorage")) || []; 
 let totalPrice = 0;
 
+//l'affichage des tous les produits dans le panier
 function displayAllItemsBasket() {
   for (const item of oldArrayItems) {
     totalPrice += item.productPrice * item.productQuantity;
@@ -25,10 +27,8 @@ function displayAllItemsBasket() {
         <br>${item.productPrice * item.productQuantity} $
         <br>   
         <a href="#">
-          <button
-            onclick="deleteProduct('${item.selectProductId}')" 
-            >
-            Delete
+          <button class="buttons"
+            onclick="deleteProduct('${item.selectProductId}')">Supprimer
           </button>
         </a>
       </div>
@@ -45,17 +45,21 @@ displayAllItemsBasket();
 function deleteProduct(currentSelectedId) {
   const id = currentSelectedId;
 
-  let newItems = oldArrayItems.filter(function (item) {     //filtrer les éléments du tableau par identifiant et en créer un nouveau avec des éléments ayant des identifiants différents de celui que nous voulons supprimer
+  //filtrer les éléments du tableau par identifiant et en créer un nouveau avec des éléments ayant des identifiants différents de celui que nous voulons supprimer
+  let newItems = oldArrayItems.filter(function (item) {
     return item.selectProductId !== id;
   });
 
-  localStorage.setItem("itemsArrayLocalStorage", JSON.stringify(newItems)); //introduction du nouveau tableau dans le localStorage
+  //introduction du nouveau tableau dans le localStorage
+  localStorage.setItem("itemsArrayLocalStorage", JSON.stringify(newItems));
 
   getBasketQuantity();
-  window.location.reload();     //la réactualisation de la page chaque fois qu'un élément est supprimé
+  //la réactualisation de la page chaque fois qu'un élément est supprimé
+  window.location.reload();
 }
 
 function increase(currentSelectedId) {
+  //determiner l'index de produit selectionné
   const itemIndex = findCurrentIndex(oldArrayItems, currentSelectedId);
 
   oldArrayItems[itemIndex].productQuantity += 1;
@@ -77,6 +81,7 @@ function decrease(currentSelectedId) {
   window.location.reload();
 }
 
+//la fonction qui permet de determiner l'index de produit selectioné
 function findCurrentIndex(oldArrayItems, currentSelectedId) {
   return oldArrayItems.findIndex(
     (item) => item.selectProductId == currentSelectedId

@@ -1,7 +1,7 @@
 const numberBasket = document.getElementById("number-basket");
 
 function getBasketQuantity() {
-  let basket = JSON.parse(localStorage.getItem("itemsArrayLocalStorage")); 
+  let basket = JSON.parse(localStorage.getItem("itemsArrayLocalStorage"));
   const quantityElements = basket.map((element) => element.productQuantity);
 
   if (basket === null) {

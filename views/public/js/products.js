@@ -1,5 +1,6 @@
 const productsList = document.getElementById("products");
 
+//À l'aide de l'API on récupère tous les produits
 fetch(`http://localhost:3000/api/teddies`)
   .then(function (response) {
     return response.json();

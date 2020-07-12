@@ -10,23 +10,27 @@ fetch(`http://localhost:3000/api/teddies/${idTedy}`)
   })
   .then(function (product) {
     productObject = product;
-    let arrayColors;  
-    let arrayOptionsColors; 
+    let arrayColors;
+    let arrayOptionsColors;
     let htmlQuantity;
 
+    // si "colors" existe dans le productobject on va creer un tableau avec toutes les valeurs existantes
     if ("colors" in productObject) {
       arrayColors = productObject.colors;
     }
 
-    for (const option of arrayColors) {         
+    //affiche le tableau des couleurs
+    for (const option of arrayColors) {
       arrayOptionsColors += `<option value="${option}">${option}</option>`;
     }
 
-    for (let index = 1; index <= 10; index++) {    
+    //affiche le tableau des quantités contenu entre 1 et 10
+    for (let index = 1; index <= 10; index++) {
       htmlQuantity += `<option value="${index}">${index}</option>`;
     }
 
-    productContent.innerHTML = `<div class="row">
+    //injection de contenu dans div
+    productContent.innerHTML = `<div class="row">                       
     <div class="col-lg-6 col-12">
     <img src="${product.imageUrl}"/>
     </div>
@@ -37,7 +41,7 @@ fetch(`http://localhost:3000/api/teddies/${idTedy}`)
      <select id="selectedColor">${arrayOptionsColors}</select>
      <select id="selectedQuantity">${htmlQuantity}</select>
      <div class="buttons">
-     <a href="#" onclick="addProduct(event)">Add to basket</a>
+     <a href="#" onclick="addProduct(event)">Ajouter au panier</a>
      </div>
      </a>
      </div>
@@ -45,13 +49,17 @@ fetch(`http://localhost:3000/api/teddies/${idTedy}`)
   });
 
 function addProduct(event) {
-  event.preventDefault();                      //annuler  le comportement par défaut de la fonction
+  //annuler  le comportement par défaut de la fonction
+  event.preventDefault();
   const selectedColor = $("#selectedColor option:selected").text();
   const selectedQuantity = $("#selectedQuantity option:selected").text();
-  let oldArrayItems =
-    JSON.parse(localStorage.getItem("itemsArrayLocalStorage")) || []; // si le tableau existe on la récupère si'il n'existe pas on crée une table vide
 
-  let newItem = {                             // crée un nouveau item qu'on souhaite inclure dans le localStorage
+  // si le tableau existe on la récupère si'il n'existe pas on crée une table vide
+  let oldArrayItems =
+    JSON.parse(localStorage.getItem("itemsArrayLocalStorage")) || [];
+
+  // crée un nouveau item qu'on souhaite inclure dans le localStorage
+  let newItem = {
     productImage: productObject.imageUrl,
     productName: productObject.name,
     productPrice: productObject.price,
@@ -61,7 +69,10 @@ function addProduct(event) {
     productQuantity: Number(selectedQuantity),
   };
 
-  oldArrayItems.push(newItem);                 //le nouvel article est inclus dans le tableau des articles
-  localStorage.setItem("itemsArrayLocalStorage", JSON.stringify(oldArrayItems)); //le nouveau tableau avec les nouvelles articles est inclus dans le localStorage
+  //le nouvel article est inclus dans le tableau des articles
+  oldArrayItems.push(newItem);
+
+  //le nouveau tableau avec les nouvelles articles est inclus dans le localStorage
+  localStorage.setItem("itemsArrayLocalStorage", JSON.stringify(oldArrayItems));
   getBasketQuantity();
 }
